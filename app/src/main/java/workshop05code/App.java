@@ -62,6 +62,7 @@ public class App {
             }
 
         } catch (IOException e) {
+            logger.log(Level.SEVERE, e.getMessage());
             System.out.println("Not able to load . Sorry!");
             System.out.println(e.getMessage());
             return;
@@ -77,9 +78,12 @@ public class App {
                 System.out.println("You've guessed '" + guess+"'.");
 
                 if (wordleDatabaseConnection.isValidWord(guess)) { 
+                    logger.log(Level.FINE, guess);
                     System.out.println("Success! It is in the the list.\n");
                 }else{
+                    logger.log(Level.FINE, guess);    
                     System.out.println("Sorry. This word is NOT in the the list.\n");
+
                 }
 
                 System.out.print("Enter a 4 letter word for a guess or q to quit: " );
